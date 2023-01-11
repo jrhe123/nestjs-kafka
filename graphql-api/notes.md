@@ -7,6 +7,10 @@
 - localhost:3000/auth/login
 - current auth guard (GraphQL, REST)
 - decorator: get current login user
+
+#### Socket.io example
+
+- websocket
 #### CRUD
 
 mutation{
