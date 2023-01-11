@@ -17,6 +17,6 @@ export class MongoGenericRepository<T> implements IGenericRepository<T> {
     return this.model.create(item);
   }
   findOneAndUpdate(filterQuery: FilterQuery<T>, item: Partial<T>) {
-    return this.model.findOneAndUpdate(filterQuery, item);
+    return this.model.findOneAndUpdate(filterQuery, item, { new: true });
   }
 }
