@@ -2,8 +2,11 @@
 
 - localhost:3000/graphql
 
+#### Passport & JWT
 
-####
+- current auth guard (GraphQL, REST)
+- decorator: get current login user
+#### CRUD
 
 mutation{
   createUser(createUserData:{email: "roytest@gmail.com", age:20}) {
