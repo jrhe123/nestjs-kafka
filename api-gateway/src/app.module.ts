@@ -1,7 +1,19 @@
 import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
+import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { UsersModule } from './users/users.module';
+
+import * as fs from 'fs';
+import * as dotenv from 'dotenv';
+
+function getEnv(env: string): Record<string, any> {
+  if (fs.existsSync(env)) {
+    return dotenv.parse(fs.readFileSync(env));
+  }
+  return {};
+}
 
 @Module({
   imports: [
@@ -20,6 +32,8 @@ import { AppService } from './app.service';
         },
       },
     ]),
+    MongooseModule.forRoot(getEnv('.env')['MONGO_DB_HOST']),
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

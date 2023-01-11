@@ -4,6 +4,7 @@
 
 #### Passport & JWT
 
+- localhost:3000/auth/login
 - current auth guard (GraphQL, REST)
 - decorator: get current login user
 #### CRUD
