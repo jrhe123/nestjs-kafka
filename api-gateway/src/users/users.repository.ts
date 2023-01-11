@@ -6,7 +6,7 @@ import { User, UserDocument } from './schemas/user.schema';
 
 @Injectable()
 export class UserRepository extends MongoGenericRepository<User> {
-  constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {
+  constructor(@InjectModel(User.name) userModel: Model<UserDocument>) {
     super(userModel);
   }
 }

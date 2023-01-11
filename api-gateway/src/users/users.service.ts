@@ -14,7 +14,14 @@ export class UsersService {
   }
 
   async getUsers(): Promise<User[]> {
-    return this.usersRepository.find({});
+    return this.usersRepository.find(
+      {
+        // email: 'roytest@gmail.com'
+      },
+      {
+        email: 0, // exclusion
+      },
+    );
   }
 
   async createUser(email: string, age: number): Promise<User> {
@@ -28,5 +35,9 @@ export class UsersService {
 
   async updateUser(userId: string, userUpdates: UpdateUserDto): Promise<User> {
     return this.usersRepository.findOneAndUpdate({ userId }, userUpdates);
+  }
+
+  async deleteUser(userId: string): Promise<boolean> {
+    return this.usersRepository.deleteMany({ userId });
   }
 }
