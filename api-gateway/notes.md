@@ -13,6 +13,18 @@
 
 - yarn test
 
+
+#### aws serverless deployment
+
+- serverless.ts
+- serverless.yaml
+- yarn build
+- sls offline
+- http://localhost:3000/dev
+- upload to s3 after test:
+- sls deploy --stage prod
+- sls logs --function main --stage prod
+
 #### graphql
 
 - http://localhost:3000/graphql

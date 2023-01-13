@@ -1,0 +1,25 @@
+service: api-gateway-backend
+
+useDotenv: true
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  environment:
+    MONGO_TEST_DB_HOST: ${env:MONGO_TEST_DB_HOST}
+    MONGO_DB_HOST: ${env:MONGO_DB_HOST}
+    MONGO_DB_PORT: ${env:MONGO_DB_PORT}
+
+functions:
+  main:
+    handler: dist/serverless.handler
+    events:
+      - http:
+          method: ANY
+          path: /
+      - http:
+          method: ANY
+          path: '{proxy+}'
