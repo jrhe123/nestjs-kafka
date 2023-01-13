@@ -12,7 +12,7 @@ export class UpdateUserInput {
   @IsNotEmpty()
   age?: number;
 
-  @Field({ nullable: true })
+  @Field((_) => [String], { nullable: true })
   @IsOptional()
   favoriteFoods?: string[];
 }

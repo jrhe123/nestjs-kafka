@@ -10,7 +10,6 @@ export abstract class MongoGenericRepository<T>
     filterQuery: FilterQuery<T>,
     projection?: Record<string, unknown>,
   ): Promise<T | null> {
-    console.log('+++++++++: ', projection);
     return this.model
       .findOne(filterQuery, {
         _id: 0,
