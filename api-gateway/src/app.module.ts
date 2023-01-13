@@ -8,6 +8,8 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 
 import { DatabaseModule } from './database/database.module';
+import { KafkaModule } from './kafka/kafka.module';
+import { TestConsumer } from './test.consumer';
 
 @Module({
   imports: [
@@ -35,9 +37,12 @@ import { DatabaseModule } from './database/database.module';
       // code first approach
       autoSchemaFile: true,
     }),
+    // mongo persitent kafka
+    KafkaModule,
+    //
     DatabaseModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, TestConsumer],
 })
 export class AppModule {}
